@@ -1,5 +1,5 @@
 
-![image](graphic.PNG)
+![image=0.2x](graphic.PNG)
 
 # Quantum counting
 
