@@ -1,5 +1,5 @@
 
-![image](graphic.PNG | witdh=10)
+![image](graphic.PNG}{:height="50%" width="50%"}
 
 # Quantum counting
 
