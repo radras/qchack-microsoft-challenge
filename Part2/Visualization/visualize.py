@@ -9,12 +9,11 @@ def main():
     frequency =  {}
     N_Experiments = 1000
     results = []
-    number = 21
 
     # Run N_Experiments times the Q# operation.
     for i in range(N_Experiments):
         print(f'Experiment: {i} of {N_Experiments}')
-        results.append(MeasureTarget.simulate(number = number))
+        results.append(MeasureTarget.simulate())
 
     # Store the results in a dictionary
     for i in results:
@@ -33,8 +32,8 @@ def main():
     plt.bar(frequency.keys(), frequency.values())
     plt.xlabel("Output")
     plt.ylabel("Frequency of the outputs")
-    plt.title("Outputs for Grover's counting. N=21, 1000 iterations")
-    plt.xticks(np.arange(1, 33, 2.0))
+    plt.title("Outputs for Grover's counting for 1000 iterations")
+    plt.xticks(np.arange(0, 32, 1.0))
     plt.show()
 
 if __name__ == "__main__":
