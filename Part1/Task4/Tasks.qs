@@ -107,4 +107,3 @@ namespace QCHack.Task4 {
         }
     }
 }
-

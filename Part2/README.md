@@ -1,1 +1,1 @@
-# Our project title
+# Quantum counting
