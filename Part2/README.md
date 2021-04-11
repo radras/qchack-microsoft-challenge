@@ -1,11 +1,11 @@
 # Quantum counting
 
 As you've probably learned from the other Microsoft Katas, Grover's algorithm is a way of accelerating unstructured search on quantum computers.  Importantly, one must know both the total size of the search space ($N$), and the total number of solutions to the search problem ($M$), to know the angle ($\theta$) that each Grover step rotates the state by:
-
+ ```tex
 \begin{align}
     \sin^2{\theta/2} = M/2N
 \end{align}
-
+```
 This provides a stopping condition, becausing applying too many Grover steps will rotate the state past the point when the maximal success probability is achieved (i.e. when meausuring the output register will produce a bitstring that is included in the known solution set).  This discussion begs the question: what if you don't know the total number of solutions beforehand?  
 
 One could always run Grover search for a range of different $M$s, mesuring the output over each iteration and checking for those which are valid solutions, but we can do better.  The quantum couting algorithm (NC pg. 263) presents a solution, where one can use the quantum phase estimation algorithm (QPE) to estimate the eigenvalues of some unitary $U$, where $U$ is the Grover interation, which is 
