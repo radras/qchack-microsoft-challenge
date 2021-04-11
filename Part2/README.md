@@ -22,6 +22,11 @@ Importantly, in QPE we need to prepare an eigenstate of <img src="https://render
 
 In the displayed circuit diagram, <img src="https://render.githubusercontent.com/render/math?math=t"> refers to the number of qubits needed in QPE, and ultimately determines the resolution with which we can learn <img src="https://render.githubusercontent.com/render/math?math=\theta">, and also the probability with which the circuit succeeds at all.  The <img src="https://render.githubusercontent.com/render/math?math=n"> register refers to the workspace of the Grover unitary, which just needs however many qubits are involved in the search algorithm.
 
+
+Running the Python code `visualize.py` in the Visualization folder one obtains the following plot:
+![image](https://user-images.githubusercontent.com/30697242/114305440-8894d200-9ad8-11eb-9ace-09a0c96ba233.png)
+
+
 ### References
 
 - Nielsen & Chuang Chapter 6
