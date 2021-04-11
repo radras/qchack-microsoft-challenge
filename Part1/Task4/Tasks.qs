@@ -1,6 +1,7 @@
 namespace QCHack.Task4 {
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Intrinsic;
+    open Microsoft.Quantum.Arrays;
 
     // Task 4 (12 points). f(x) = 1 if the graph edge coloring is triangle-free
     // 
@@ -43,7 +44,67 @@ namespace QCHack.Task4 {
         colorsRegister : Qubit[], 
         target : Qubit
     ) : Unit is Adj+Ctl {
-        // ...
+        // Find all triangles
+        let triangles = get_triangles(edges);
+        // Create corresponding ancillas
+        use ancillas = Qubit[Length(triangles)];
+        within {
+            for anc in ancillas {
+                X(anc);
+            }
+            // Flip the ancilla if the triangle is of a single color
+            for i in 0 .. Length(triangles) - 1 {
+                let (a, b, c) = triangles[i];
+                Check_Triangle([colorsRegister[a], colorsRegister[b], colorsRegister[c]], ancillas[i]);
+            }
+        }
+        apply {
+            // If there was no single color triangles the ancillas are all 1 so this gets executed
+            Controlled X(ancillas, target);
+        }
+    }
+
+    function get_triangles(edges : (Int, Int)[]) : (Int, Int, Int)[] {
+        mutable triangles = EmptyArray<(Int, Int, Int)>();
+        
+        for i in 0 .. Length(edges) - 1 {
+            for j in i + 1 .. Length(edges) - 1 {
+                for k in j + 1 .. Length(edges) - 1 {
+                    let (a0, a1) = edges[i];
+                    let (b0, b1) = edges[j];
+                    let (c0, c1) = edges[k];
+                    
+                    if  (a0 == b0 and a1 == c0 and b1 == c1) or 
+                        (a0 == b0 and a1 == c1 and b1 == c0) or 
+                        (a0 == b1 and b0 == c0 and a1 == c1) or 
+                        (a0 == b1 and b0 == c1 and a1 == c0) or 
+                        (a1 == b0 and a0 == c0 and b1 == c1) or 
+                        (a1 == b0 and a0 == c1 and b1 == c0) or 
+                        (a1 == b1 and b0 == c0 and a0 == c1) or 
+                        (a1 == b1 and b0 == c1 and a0 == c0) {
+                        set triangles = triangles + [(i, j, k)];
+                    }
+                }
+            }
+        }
+        return triangles;
+    }
+
+    // 1 if the triangle is colored as 000 or 111
+    operation Check_Triangle (inputs : Qubit[], output : Qubit) : Unit is Adj+Ctl {
+        within {
+            CNOT(inputs[1], inputs[2]);
+            CNOT(inputs[0], inputs[1]);
+        }
+        apply {
+            within {
+                X(inputs[1]);
+                X(inputs[2]);
+            }
+            apply {
+                CCNOT(inputs[1], inputs[2], output);
+            }
+        }
     }
 }
 
