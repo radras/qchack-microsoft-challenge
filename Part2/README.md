@@ -2,7 +2,7 @@
 
 As you've probably learned from the other Microsoft Katas, Grover's algorithm is a way of accelerating unstructured search on quantum computers.  Importantly, one must know both the total size of the search space ($N$), and the total number of solutions to the search problem ($M$), to know the angle ($\theta$) that each Grover step rotates the state by:
 
-<img src="https://render.githubusercontent.com/render/math?math=\sin^2{\theta/2} = M/2N"
+<img src="https://render.githubusercontent.com/render/math?math=\sin^2{\theta/2} = M/2N">
 
 This provides a stopping condition, becausing applying too many Grover steps will rotate the state past the point when the maximal success probability is achieved (i.e. when meausuring the output register will produce a bitstring that is included in the known solution set).  This discussion begs the question: what if you don't know the total number of solutions beforehand?  
 
