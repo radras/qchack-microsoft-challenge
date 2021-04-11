@@ -52,7 +52,7 @@ operation QuantumCounting(groverQubits : Qubit[], targetQubits : Qubit[]) : Unit
 
 @EntryPoint()
 operation MeasureTarget() : Int {
-    use groverQubits = Qubit[6];
+    use groverQubits = Qubit[5];
     use targetQubits = Qubit[5];
     
     QuantumCounting(groverQubits, targetQubits);

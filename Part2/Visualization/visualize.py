@@ -33,7 +33,7 @@ def main():
     plt.xlabel("Output")
     plt.ylabel("Frequency of the outputs")
     plt.title("Outputs for Grover's counting for 1000 iterations")
-    plt.xticks(np.arange(0, 32, 1.0))
+    plt.xticks(np.arange(0, 16, 1.0))
     plt.show()
 
 if __name__ == "__main__":
