@@ -24,7 +24,8 @@ In the displayed circuit diagram, <img src="https://render.githubusercontent.com
 
 
 Running the Python code `visualize.py` in the Visualization folder one obtains the following plot:
-![image](https://user-images.githubusercontent.com/30697242/114305605-225c7f00-9ad9-11eb-98a5-cb6d88bb8d3e.png)
+![image](https://user-images.githubusercontent.com/30697242/114305759-d231ec80-9ad9-11eb-82fb-d60fd6c5c362.png)
+
 
 The correct result is 2, given the implemented oracle which flags either all 0s or all 1s.  The output axis in the plot displays the estimated probabilities of each outcome, if the bin label is converted to a binary string.
 
