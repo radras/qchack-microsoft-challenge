@@ -8,12 +8,12 @@ This provides a stopping condition, becausing applying too many Grover steps wil
 
 One could always run Grover search for a range of different <img src="https://render.githubusercontent.com/render/math?math=M">s, mesuring the output over each iteration and checking for those which are valid solutions, but we can do better.  The quantum couting algorithm (NC pg. 263) presents a solution, where one can use the quantum phase estimation algorithm (QPE) to estimate the eigenvalues of some unitary <img src="https://render.githubusercontent.com/render/math?math=U"> , where <img src="https://render.githubusercontent.com/render/math?math=U">  is the Grover interation, which is 
 
-\begin{align}
+<img src="https://render.githubusercontent.com/render/math?math=
     G = \begin{bmatrix}
     cos(\theta) & -sin(\theta)\\
     sin(\theta) & cos(\theta)
     \end{bmatrix}
-\end{align}
+">
 
 in the 2-d basis spanned by <img src="https://render.githubusercontent.com/render/math?math=|\alpha\rangle"> and <img src="https://render.githubusercontent.com/render/math?math=|\beta\rangle">, which are superpositions over all solutions and non-solutions to the search problem, respectively.  <img src="https://render.githubusercontent.com/render/math?math=G">  has eigenvalues <img src="https://render.githubusercontent.com/render/math?math=e^{i\theta}"> and <img src="https://render.githubusercontent.com/render/math?math=e^{i(2\pi-\theta)}">, which we then seek to estimate via quantum phase estimation.  Knowing <img src="https://render.githubusercontent.com/render/math?math=\theta"> and <img src="https://render.githubusercontent.com/render/math?math=N"> , we can compute <img src="https://render.githubusercontent.com/render/math?math=M">  and thus know how many solutions exist to our search problem.  The circuit is 
 
