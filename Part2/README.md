@@ -5,6 +5,10 @@ As you've probably learned from the other Microsoft Katas, Grover's algorithm is
 <img src="https://render.githubusercontent.com/render/math?math=\sin^2{\theta/2} = M/2N">
 
 This provides a stopping condition, becausing applying too many Grover steps will rotate the state past the point when the maximal success probability is achieved (i.e. when meausuring the output register will produce a bitstring that is included in the known solution set).  This discussion begs the question: what if you don't know the total number of solutions beforehand?  
+``` math
+1
+
+``
 
 One could always run Grover search for a range of different <img src="https://render.githubusercontent.com/render/math?math=M">s, mesuring the output over each iteration and checking for those which are valid solutions, but we can do better.  The quantum couting algorithm (NC pg. 263) presents a solution, where one can use the quantum phase estimation algorithm (QPE) to estimate the eigenvalues of some unitary <img src="https://render.githubusercontent.com/render/math?math=U"> , where <img src="https://render.githubusercontent.com/render/math?math=U">  is the Grover interation, which is 
 
