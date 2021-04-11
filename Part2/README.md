@@ -24,6 +24,8 @@ In the displayed circuit diagram, <img src="https://render.githubusercontent.com
 
 ### References
 
-Nielsen & Chuang Chapter 6
+- Nielsen & Chuang Chapter 6
 
-https://en.wikipedia.org/wiki/Grover%27s_algorithm
+- https://en.wikipedia.org/wiki/Grover%27s_algorithm
+
+- https://en.wikipedia.org/wiki/Quantum_phase_estimation_algorithm
