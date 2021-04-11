@@ -5,14 +5,11 @@ As you've probably learned from the other Microsoft Katas, Grover's algorithm is
 <img src="https://render.githubusercontent.com/render/math?math=\sin^2{\theta/2} = M/2N">
 
 This provides a stopping condition, becausing applying too many Grover steps will rotate the state past the point when the maximal success probability is achieved (i.e. when meausuring the output register will produce a bitstring that is included in the known solution set).  This discussion begs the question: what if you don't know the total number of solutions beforehand?  
-``` math
-1
 
-``
 
 One could always run Grover search for a range of different <img src="https://render.githubusercontent.com/render/math?math=M">s, mesuring the output over each iteration and checking for those which are valid solutions, but we can do better.  The quantum couting algorithm (NC pg. 263) presents a solution, where one can use the quantum phase estimation algorithm (QPE) to estimate the eigenvalues of some unitary <img src="https://render.githubusercontent.com/render/math?math=U"> , where <img src="https://render.githubusercontent.com/render/math?math=U">  is the Grover interation, which is 
 
-<img src="https://render.githubusercontent.com/render/math?math= G=\begin{bmatrix}cos(\theta)&-sin(\theta)\\sin(\theta)&cos(\theta)\end{bmatrix}">
+<img src="https://render.githubusercontent.com/render/math?math= G=\begin{bmatrix}{cos(\theta)&-sin(\theta)}\\{sin(\theta)&cos(\theta)}\end{bmatrix}">
 
 in the 2-d basis spanned by <img src="https://render.githubusercontent.com/render/math?math=|\alpha\rangle"> and <img src="https://render.githubusercontent.com/render/math?math=|\beta\rangle">, which are superpositions over all solutions and non-solutions to the search problem, respectively.  <img src="https://render.githubusercontent.com/render/math?math=G">  has eigenvalues <img src="https://render.githubusercontent.com/render/math?math=e^{i\theta}"> and <img src="https://render.githubusercontent.com/render/math?math=e^{i(2\pi-\theta)}">, which we then seek to estimate via quantum phase estimation.  Knowing <img src="https://render.githubusercontent.com/render/math?math=\theta"> and <img src="https://render.githubusercontent.com/render/math?math=N"> , we can compute <img src="https://render.githubusercontent.com/render/math?math=M">  and thus know how many solutions exist to our search problem.  The circuit is 
 
