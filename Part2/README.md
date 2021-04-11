@@ -1,3 +1,6 @@
+
+![image](graphic.PNG)
+
 # Quantum counting
 
 As you've probably learned from the other Microsoft Katas, Grover's algorithm is a way of accelerating unstructured search on quantum computers.  Importantly, one must know both the total size of the search space (<img src="https://render.githubusercontent.com/render/math?math=N"> ), and the total number of solutions to the search problem (<img src="https://render.githubusercontent.com/render/math?math=M"> ), to know the angle (<img src="https://render.githubusercontent.com/render/math?math=\theta"> ) that each Grover step rotates the state by:
