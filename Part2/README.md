@@ -24,7 +24,8 @@ In the displayed circuit diagram, <img src="https://render.githubusercontent.com
 
 
 Running the Python code `visualize.py` in the Visualization folder one obtains the following plot:
-![image](https://user-images.githubusercontent.com/30697242/114305440-8894d200-9ad8-11eb-9ace-09a0c96ba233.png)
+![image](https://user-images.githubusercontent.com/30697242/114305605-225c7f00-9ad9-11eb-98a5-cb6d88bb8d3e.png)
+
 
 
 ### References
